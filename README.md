@@ -43,4 +43,4 @@ Now you start a new Docker container with the alias of8.
 
 ## More detailed information
 
-More information for Windows operating system is available at https://haervig.com/files/openfoam_with_docker.pdf
+More information for Windows operating system is available at https://haervig.com/files/OpenFOAM_with_Docker.pdf
