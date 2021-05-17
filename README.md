@@ -28,6 +28,19 @@ docker image build -t openfoam:v8 $HOME/openfoam-dockerfiles/v8/
 
 Now, make sure Docker is running before running:
 
+```shell
 docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:v8
 
-container. The contained is destroyed once you exit. You should therefore run your simulations inside /data, which is stored on your local file system.
+```
+
+You may want to create an alias for the above command:
+
+```shell
+echo 'alias of8="docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:v8"' >> $HOME/.bashrc
+```
+
+Now you start a new Docker container with the alias of8.
+
+## More detailed information
+
+More information for Windows operating system is avialable at haervig.com/files/openfoam
