@@ -9,6 +9,7 @@ RUN apt-get update \
 	&& apt-get install -y \
 		ssh \
 		sudo \
+		ffmpeg \
 		wget \
 		nano \
 		build-essential \
