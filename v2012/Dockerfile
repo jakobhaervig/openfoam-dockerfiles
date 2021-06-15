@@ -42,4 +42,7 @@ RUN echo "source /usr/lib/openfoam/openfoam2012/etc/bashrc" >> ~foam/.bashrc ;\
 USER foam
 
 #change environmental variables to make sure $WM_PROJECT_USER_DIR is outside of the container
-RUN sudo sed -i 's+export WM_PROJECT_USER_DIR="$HOME/$WM_PROJECT/$USER-$WM_PROJECT_VERSION"+export WM_PROJECT_USER_DIR="/data/$WM_PROJECT/foam-$WM_PROJECT_VERSION"+g' /usr/lib/openfoam/openfoam2012/etc/bashrc
+RUN sudo sed -i 's+ \
+export WM_PROJECT_USER_DIR="$HOME/$WM_PROJECT/$USER-$WM_PROJECT_VERSION"+ \
+export WM_PROJECT_USER_DIR="/data/$WM_PROJECT/foam-$WM_PROJECT_VERSION"+g' \
+/usr/lib/openfoam/openfoam2012/etc/bashrc
