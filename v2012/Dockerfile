@@ -12,6 +12,7 @@ RUN apt-get update \
 		sudo \
 		wget \
 		nano \
+		git \
 		build-essential \
 		software-properties-common ;\
 		rm -rf /var/lib/apt/lists/*
