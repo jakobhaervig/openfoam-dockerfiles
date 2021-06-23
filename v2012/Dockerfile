@@ -16,6 +16,7 @@ RUN apt-get update \
 		build-essential \
 		software-properties-common ;\
 		rm -rf /var/lib/apt/lists/*
+		
 #install python
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
