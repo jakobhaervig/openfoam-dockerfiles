@@ -33,6 +33,7 @@ RUN pip3 install opencv-python
 RUN pip3 install shapely
 RUN pip3 install scipy
 RUN pip3 install numpy-stl
+RUN pip3 install fluidfoam
 
 
 #add user "foam"
