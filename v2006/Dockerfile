@@ -29,6 +29,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 #install python packages
 RUN pip3 install numpy
 RUN pip3 install matplotlib
+RUN pip3 install scipy
 
 #add user "foam"
 RUN useradd --user-group --create-home --shell /bin/bash foam ;\
