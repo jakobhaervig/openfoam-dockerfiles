@@ -34,7 +34,7 @@ RUN pip3 install matplotlib
 RUN useradd --user-group --create-home --shell /bin/bash foam ;\
 	echo "foam ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-#download openfoam v2006
+#download openfoam v2106
 RUN wget -q -O - https://dl.openfoam.com/add-debian-repo.sh | sudo bash ;\
     apt-get install -y openfoam2106-default ;\
     rm -rf /var/lib/apt/lists/*
