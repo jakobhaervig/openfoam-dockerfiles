@@ -40,7 +40,3 @@ echo 'alias of2106="docker container run -ti --rm -v $HOME/openfoam-data:/data -
 ```
 
 Now you start a new Docker container with the alias of2106.
-
-## More detailed information
-
-More information for Windows operating system is available at https://haervig.com/files/openfoam_with_docker.pdf
