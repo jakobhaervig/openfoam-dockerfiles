@@ -2,8 +2,17 @@
 
 This repository contains OpenFOAM Dockerfiles. I've included both openfoam.com and openfoam.org releases based on Ubuntu Focal (20.04 LTS).
 
-## Setup
+## What is Docker and why?
 
+Docker is a set of tools to manage, build and run various software installations with a number of advantages. Using Docker we start containers (think of shipping containers)from images. Containers include everything needed to run a particular set of tasks (in this case OpenFOAM simulations). As containers are standardised, you can be confident that they run the same way on Windows, macOS and Linux. And yes, they are future proof and run similarly on major cloud solutions such as Amazon Web Services (AWS) and Microsoft Azure. This is convenient (!) because we can copy our setup to a cloud solution or a friend’s computer and still be confident it runs the same way.
+
+## Docker containers, Docker images and Dockerfiles
+
+Instead of shipping the complete container including the operating system, it’s more convenient to use what we call Dockerfiles. Think of Dockerfiles as recipes (text file with set of commands) that outlines how to build an image. A container may then be started from the Docker image
+
+# Setup
+
+## 1. Prerequisites
 First, create a folder for your OpenFOAM files in your native OS, e.g.:
 
 ```shell
