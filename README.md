@@ -14,6 +14,7 @@ Instead of shipping the complete container including the operating system, it’
 
 ## 1. Prerequisites
 a) Install [Docker](https://www.docker.com/products/docker-desktop)
+
 Windows only: You will be prompted to install WSL (Windows Subsystem for Linux) when installing Docker (in the instructions
 please follow step 4 and 5).
 
