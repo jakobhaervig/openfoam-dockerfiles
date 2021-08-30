@@ -55,4 +55,18 @@ docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:v21
 ```
 
 Running the above command should leave you inside the Docker container with the username "foam". 
-Also, you may access the container through $HOME/openfoam-data, e.g. on a Windows system: ``C:\\Users\jakob\openfoam-data``
+Also, you may access the container through $HOME/openfoam-data:
+
+e.g. on a Windows system: ``C:\Users\jakob\openfoam-data``
+
+## 4. Test the OpenFOAM installation
+
+To test if OpenFOAM is working properly, try running:
+
+```shell
+simpleFoam -help
+
+```
+, which should output the following if everything is working correctly:
+
+![](verifyInstallation.jpg)
