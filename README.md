@@ -45,7 +45,7 @@ docker image build -t openfoam:v2106 $HOME/openfoam-dockerfiles/v2106/
 
 ```
 
-## Running the Docker container
+## 3. Running the Docker container
 
 Finally, we can run a Docker container with /data mapped to $HOME/openfoam-data:
 
