@@ -67,6 +67,6 @@ To test if OpenFOAM is working properly, try running:
 simpleFoam -help
 
 ```
-, which should output the following if everything is working correctly:
+The above command should output the following if everything is working correctly:
 
 ![](verifyInstallation.jpg)
