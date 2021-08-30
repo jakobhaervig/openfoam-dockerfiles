@@ -45,8 +45,6 @@ docker image build -t openfoam:v2106 $HOME/openfoam-dockerfiles/v2106/
 
 ```
 
-
-
 ## Running the Docker container
 
 Now, make sure Docker is running before running:
@@ -56,10 +54,4 @@ docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:v21
 
 ```
 
-You may want to create an alias for the above command:
-
-```shell
-echo 'alias of2106="docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:v2106"' >> $HOME/.bashrc
-```
-
-Now you start a new Docker container with the alias of2106.
+Which should leave you inside the Docker container with the username "foam". Also, you may access the container through $HOME/openfoam-data, e.g. on a Windows system: C:\\Users\jakob\openfoam-data 
