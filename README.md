@@ -47,11 +47,13 @@ docker image build -t openfoam:v2106 $HOME/openfoam-dockerfiles/v2106/
 
 ## Running the Docker container
 
-Now, make sure Docker is running before running:
+a) Now, make sure Docker is running before running:
+
+b) Finally, we can run a Docker container with /data mapped to $HOME/openfoam-data:
 
 ```shell
 docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:v2106
 
 ```
 
-Which should leave you inside the Docker container with the username "foam". Also, you may access the container through $HOME/openfoam-data, e.g. on a Windows system: C:\\Users\jakob\openfoam-data 
+Running the above command should leave you inside the Docker container with the username "foam". Also, you may access the container through $HOME/openfoam-data, e.g. on a Windows system: ``C:\\Users\jakob\openfoam-data``
