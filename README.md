@@ -23,7 +23,7 @@ b) Install [Git](https://git-scm.com/downloads)
 c) Install [Paraview](https://www.paraview.org/download/)
 
 ## 2. Initial setup
-a) Open a Powershell (Windows) or a terminal (macOS or Linux) and run the following commands to make a folder for your OpenFOAM data. This folder will store your simulation resuslts:
+a) Open a Powershell (Windows) or a terminal (macOS or Linux) and run the following commands to make a folder for your OpenFOAM data. This folder will store your simulation results:
 
 ```shell
 mkdir $HOME/openfoam-data
@@ -47,9 +47,7 @@ docker image build -t openfoam:v2106 $HOME/openfoam-dockerfiles/v2106/
 
 ## Running the Docker container
 
-a) Now, make sure Docker is running before running:
-
-b) Finally, we can run a Docker container with /data mapped to $HOME/openfoam-data:
+Finally, we can run a Docker container with /data mapped to $HOME/openfoam-data:
 
 ```shell
 docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:v2106
