@@ -59,7 +59,7 @@ Please note that everything in the container is deleted when you exit the contai
 Running the above command should leave you inside the Docker container with the username "foam". 
 Also, you may access the container through ``$HOME/openfoam-data`` e.g.:
 
-On a Windows system ``C:\\Users\jakob\openfoam-data``
+On a Windows system ``C:\Users\jakob\openfoam-data``
 
 On a macOS system: ``/Users/jakob/openfoam-data``
 
