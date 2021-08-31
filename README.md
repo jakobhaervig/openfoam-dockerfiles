@@ -54,7 +54,13 @@ docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:v21
 
 ```
 
-Please note that everything in the container is deleted when you exit the container. Therefore you should save your simulation results and solver development in ``/data`` inside the container which persists.
+Please note that everything in the container is deleted when you exit the container. Therefore you should save your simulation results and solver development in ``/data``, which is the only directory that persists when the container is closed.
 
 Running the above command should leave you inside the Docker container with the username "foam". 
-Also, you may access the container through ``$HOME/openfoam-data``, e.g. on a Windows system ``C:\\Users\jakob\openfoam-data`` or macOS system: ``/Users/jakob/openfoam-data`` or Linux systems ``/home/jakob/openfoam-data``.
+Also, you may access the container through ``$HOME/openfoam-data`` e.g.:
+
+On a Windows system ``C:\\Users\jakob\openfoam-data``
+
+On a macOS system: ``/Users/jakob/openfoam-data``
+
+On most Linux systems ``/home/jakob/openfoam-data``
