@@ -47,12 +47,14 @@ docker image build -t openfoam:v2106 $HOME/openfoam-dockerfiles/v2106/
 
 ## 3. Running the Docker container
 
-Finally, we can run a Docker container with /data mapped to $HOME/openfoam-data:
+Finally, we can run a Docker container with ``/data`` mapped to ``$HOME/openfoam-data``:
 
 ```shell
 docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:v2106
 
 ```
 
+Please note that everything in the container is deleted when you exit the container. Therefore you should save your simulation results and solver development in ``/data`` inside the container which persists.
+
 Running the above command should leave you inside the Docker container with the username "foam". 
-Also, you may access the container through $HOME/openfoam-data, e.g. on a Windows system: ``C:\\Users\jakob\openfoam-data``
+Also, you may access the container through ``$HOME/openfoam-data``, e.g. on a Windows system ``C:\\Users\jakob\openfoam-data`` or macOS system: ``/Users/jakob/openfoam-data`` or Linux systems ``/home/jakob/openfoam-data``.
