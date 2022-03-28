@@ -6,13 +6,13 @@ ENV TZ=Europe/Copenhagen
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 #install essentials
-RUN apt-get update \
-	&& apt-get install -y \
+RUN apt-get update && apt-get install -y \
 		ssh \
 		sudo \
 		wget \
 		nano \
 		git \
+		ffmpeg \
 		build-essential \
 		software-properties-common ;\
 		rm -rf /var/lib/apt/lists/*
@@ -20,12 +20,8 @@ RUN apt-get update \
 #install python
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
-    python3-pip \
-	ffmpeg \
-    && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-    
+    python3-pip
+
 #install python packages
 RUN pip3 install numpy
 RUN pip3 install matplotlib
@@ -47,4 +43,4 @@ RUN echo "source /usr/lib/openfoam/openfoam2112/etc/bashrc" >> ~foam/.bashrc ;\
 USER foam
 
 #change environmental variables to make sure $WM_PROJECT_USER_DIR is outside of the container
-RUN sudo sed -i 's+export WM_PROJECT_USER_DIR="$HOME/$WM_PROJECT/$USER-$WM_PROJECT_VERSION"+export WM_PROJECT_USER_DIR="/data/$WM_PROJECT/foam-$WM_PROJECT_VERSION"+g' /usr/lib/openfoam/openfoam2112/etc/bashrc
+RUN sudo sed -i 's+export WM_PROJECT_USER_DIR="$HOME/$WM_PROJECT/${USER:-user}-$WM_PROJECT_VERSION"+export WM_PROJECT_USER_DIR="/data/$WM_PROJECT/foam-$WM_PROJECT_VERSION"+g' /usr/lib/openfoam/openfoam2112/etc/bashrc
