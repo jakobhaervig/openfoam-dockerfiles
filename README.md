@@ -38,10 +38,10 @@ git clone https://github.com/jakobhaervig/openfoam-dockerfiles.git $HOME/openfoa
 ```
 c) Now, make sure Docker is running before running before continuing.
 
-d) Build the OpenFOAM image, e.g. for OpenFOAM v2106:
+d) Build the OpenFOAM image, e.g. for OpenFOAM v2112:
 
 ```shell
-docker image build -t openfoam:v2106 $HOME/openfoam-dockerfiles/v2106/
+docker image build -t openfoam:v2112 $HOME/openfoam-dockerfiles/v2112/
 
 ```
 
@@ -50,7 +50,7 @@ docker image build -t openfoam:v2106 $HOME/openfoam-dockerfiles/v2106/
 Finally, we can run a Docker container with ``/data`` mapped to ``$HOME/openfoam-data``:
 
 ```shell
-docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:v2106
+docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:v2112
 
 ```
 
