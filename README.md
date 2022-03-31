@@ -12,6 +12,9 @@ Instead of shipping the complete container including the operating system, it’
 
 # Setup
 
+In the following, ```<version>``` refers to the OpenFOAM version (names of folders correspond to 
+available versions).
+
 ## 1. Prerequisites
 a) Install [Docker](https://www.docker.com/products/docker-desktop)
 
@@ -23,26 +26,23 @@ b) Install [Git](https://git-scm.com/downloads)
 c) Install [Paraview](https://www.paraview.org/download/)
 
 ## 2. Initial setup
-a) Open a Powershell (Windows) or a terminal (macOS or Linux) and run the following commands to make a folder for your OpenFOAM data. This folder will store your simulation results:
+a) Open a Powershell (Windows) or a terminal (macOS or Linux) and run the following commands to make a folder for your OpenFOAM data. This folder will store your simulation results and developments:
 
 ```shell
-mkdir $HOME/openfoam-data
-
+$ mkdir $HOME/openfoam-data
 ```
 
 b) Next, clone this repository by:
 
 ```shell
-git clone https://github.com/jakobhaervig/openfoam-dockerfiles.git $HOME/openfoam-dockerfiles
-
+$ git clone https://github.com/jakobhaervig/openfoam-dockerfiles.git $HOME/openfoam-dockerfiles
 ```
 c) Now, make sure Docker is running before running before continuing.
 
-d) Build the OpenFOAM image, e.g. for OpenFOAM v2112:
+d) Build the OpenFOAM image:
 
 ```shell
-docker image build -t openfoam:v2112 $HOME/openfoam-dockerfiles/v2112/
-
+$ docker image build -t openfoam:<version> $HOME/openfoam-dockerfiles/<version>/
 ```
 
 ## 3. Running the Docker container
@@ -50,8 +50,7 @@ docker image build -t openfoam:v2112 $HOME/openfoam-dockerfiles/v2112/
 Finally, we can run a Docker container with ``/data`` mapped to ``$HOME/openfoam-data``:
 
 ```shell
-docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:v2112
-
+docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:<version>
 ```
 
 Please note that everything in the container is deleted when you exit the container. Therefore you should save your simulation results and solver development in ``/data``, which is the only directory that persists when the container is closed.
