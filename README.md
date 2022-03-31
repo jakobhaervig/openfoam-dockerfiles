@@ -13,7 +13,7 @@ Instead of shipping the complete container including the operating system, it’
 # Setup
 
 In the following, ```<version>``` refers to the OpenFOAM version (names of folders correspond to 
-available versions).
+available versions), e.g. to install OpenFOAM v2112 you should ```<version>``` with v2112 throughout this guide.
 
 ## 1. Prerequisites
 a) Install [Docker](https://www.docker.com/products/docker-desktop)
