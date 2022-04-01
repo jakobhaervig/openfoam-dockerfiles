@@ -16,30 +16,33 @@ In the following, ```<version>``` refers to the OpenFOAM version (names of folde
 available versions), e.g. to install OpenFOAM v2112 you should ```<version>``` with v2112 throughout this guide.
 
 ## 1. Prerequisites
-a) Install [Docker](https://www.docker.com/products/docker-desktop)
+*1a)* Install [Docker](https://www.docker.com/products/docker-desktop)
 
 Windows only: You will be prompted to install WSL (Windows Subsystem for Linux) when installing Docker (in the instructions
 please follow step 4 and 5).
 
-b) Install [Git](https://git-scm.com/downloads)
+*1b)* Install [Git](https://git-scm.com/downloads)
 
-c) Install [Paraview](https://www.paraview.org/download/)
+*1c)* Install [Paraview](https://www.paraview.org/download/)
 
 ## 2. Initial setup
-a) Open a Powershell (Windows) or a terminal (macOS or Linux) and run the following commands to make a folder for your OpenFOAM data. This folder will store your simulation results and developments:
+*2a)* Open a Powershell (Windows) or a terminal (macOS or Linux) and run the following commands to make a folder for your OpenFOAM data. This folder will store your simulation results and developments:
 
 ```shell
 $ mkdir $HOME/openfoam-data
 ```
 
-b) Next, clone this repository by:
+*2b)* Next, clone this repository by:
 
 ```shell
 $ git clone https://github.com/jakobhaervig/openfoam-dockerfiles.git $HOME/openfoam-dockerfiles
 ```
-c) Now, make sure Docker is running before running before continuing.
 
-d) Build the OpenFOAM image:
+You should now have two folder "openfoam-data" and "openfoam-dockerfiles" in your home folder.
+
+*2c)* Now, make sure Docker is running before running before continuing.
+
+*2d)* Build a OpenFOAM image. Remember to replace ```<version>```:
 
 ```shell
 $ docker image build -t openfoam:<version> $HOME/openfoam-dockerfiles/<version>/
@@ -47,13 +50,13 @@ $ docker image build -t openfoam:<version> $HOME/openfoam-dockerfiles/<version>/
 
 ## 3. Running the Docker container
 
-Finally, we can run a Docker container with ``/data`` mapped to ``$HOME/openfoam-data``:
+*3a)* Finally, we can run a Docker container with ``/data`` mapped to ``$HOME/openfoam-data``:
 
 ```shell
 docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:<version>
 ```
 
-Please note that everything in the container is deleted when you exit the container. Therefore you should save your simulation results and solver development in ``/data``, which is the only directory that persists when the container is closed.
+*Please note* that everything in the container is deleted when you exit the container. Therefore you should save your simulation results and solver development in ``/data``, which is the only directory that persists when the container is closed.
 
 Running the above command should leave you inside the Docker container with the username "foam". 
 Also, you may access the container through ``$HOME/openfoam-data`` e.g.:
