@@ -10,6 +10,10 @@ Docker is a set of tools to manage, build and run various software installations
 
 Instead of shipping the complete container including the operating system, it’s more convenient to use what we call Dockerfiles. Think of Dockerfiles as recipes (simply just text file with set of commands) that outlines how to build an image. A container may then be started from the Docker image
 
+### Contributing to this project
+
+Feel free to fork these Docker files. If you make an improvement you are most welcome to make a pull request and you will be added to the author list. Comments are also welcome.
+
 # Setup
 
 In the following, ```<version>``` refers to the OpenFOAM version (names of folders correspond to 
@@ -66,3 +70,7 @@ On a Windows system: ``C:\Users\jakob\openfoam-data``
 On a macOS system: ``/Users/jakob/openfoam-data``
 
 On most Linux systems: ``/home/jakob/openfoam-data``
+
+## 4. Author list
+
+Jakob Hærvig
