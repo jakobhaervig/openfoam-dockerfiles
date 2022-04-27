@@ -16,8 +16,10 @@ Feel free to fork these Docker files. If you make an improvement you are most we
 
 # Setup
 
-In the following, ```<version>``` refers to the OpenFOAM version (names of folders correspond to 
-available versions), e.g. to install OpenFOAM v2112 you should ```<version>``` with v2112 throughout this guide.
+This guide explains how to setup OpenFOAM with Docker. It contains both OpenFOAM fundation versions (e.g. OpenFOAM-8, OpenFOAM-9 etc) and OpenFOAM ESI versions (e.g. OpenFOAM-2106, OpenFOAM-2112 etc). First, find locate your favourite version and export that variable. For OpenFOAM-v2112 type:
+```shell
+export ofver=2112
+```
 
 ## 1. Prerequisites
 *1a)* Install [Docker](https://www.docker.com/products/docker-desktop)
@@ -33,31 +35,31 @@ please follow step 4 and 5).
 *2a)* Open a Powershell (Windows) or a terminal (macOS or Linux) and run the following commands to make a folder for your OpenFOAM data. This folder will store your simulation results and developments:
 
 ```shell
-$ mkdir $HOME/openfoam-data
+mkdir $HOME/openfoam-data
 ```
 
 *2b)* Next, clone this repository by:
 
 ```shell
-$ git clone https://github.com/jakobhaervig/openfoam-dockerfiles.git $HOME/openfoam-dockerfiles
+git clone https://github.com/jakobhaervig/openfoam-dockerfiles.git $HOME/openfoam-dockerfiles
 ```
 
 You should now have two folder "openfoam-data" and "openfoam-dockerfiles" in your home folder.
 
 *2c)* Now, make sure Docker is running before running before continuing.
 
-*2d)* Build a OpenFOAM image. Remember to replace ```<version>```:
+*2d)* Build a OpenFOAM image:
 
 ```shell
-$ docker image build -t openfoam:<version> $HOME/openfoam-dockerfiles/<version>/
+docker image build -t openfoam:$ofver $HOME/openfoam-dockerfiles/$ofver/
 ```
 
-## 3. Running the Docker container
+## 3. Run the Docker container
 
 *3a)* Finally, we can run a Docker container with ``/data`` mapped to ``$HOME/openfoam-data``:
 
 ```shell
-docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:<version>
+docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:$ofver
 ```
 
 *Please note* that everything in the container is deleted when you exit the container. Therefore you should save your simulation results and solver development in ``/data``, which is the only directory that persists when the container is closed.
@@ -70,6 +72,16 @@ On a Windows system: ``C:\Users\jakob\openfoam-data``
 On a macOS system: ``/Users/jakob/openfoam-data``
 
 On most Linux systems: ``/home/jakob/openfoam-data``
+
+## 4. Optional: Save an alias for running the Docker container
+*4a)* Instead of running the starting the docker container with the command, let's save an alias for that command:
+```shell
+case "$OSTYPE" in
+  linux*)   echo "alias of${ofver}='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:${ofver}'" >> $HOME/.bashrc ;;
+  darwin*)  echo "alias of${ofver}='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:${ofver}'" >> $HOME/.zprofile ;;
+  *)        echo "This function is not yet added for $OSTYPE" ;;
+esac
+```
 
 ## 4. Author list
 
