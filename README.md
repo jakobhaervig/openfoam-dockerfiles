@@ -82,6 +82,8 @@ case "$OSTYPE" in
 esac
 ```
 
+Next time you open a terminal, you can use your alias e.g. ```of2112```, ```of9``` to start a Docker container with OpenFOAM all set up.
+
 ## 4. Author list
 
 Jakob Hærvig
