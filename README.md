@@ -15,7 +15,7 @@ Instead of shipping the complete container including the operating system, it’
 Feel free to fork these Docker files. If you make an improvement you are most welcome to make a pull request and you will be added to the author list. Comments are also welcome.
 
 # Setup
-This guide explains how to setup OpenFOAM with Docker. It contains both OpenFOAM fundation versions (e.g. OpenFOAM-8, OpenFOAM-9 etc) and OpenFOAM ESI versions (e.g. OpenFOAM-2106, OpenFOAM-2112 etc). First, find locate your favourite version and export that variable. Open a Power Shell (Windows) or Terminal (macOS and Linux systems) and copy/paste the following commands carefully. For OpenFOAM-v2112 type:
+This guide explains how to setup OpenFOAM with Docker. It contains both OpenFOAM fundation releases (e.g. OpenFOAM-9) and OpenFOAM ESI releases (e.g. OpenFOAM-2112). First, find locate your favourite release and export that variable. To do so open a Power Shell (Windows) or Terminal (macOS and Linux systems) and copy/paste the following commands carefully. For OpenFOAM-2112 type:
 ```shell
 export ofver=2112
 ```
