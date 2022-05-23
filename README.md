@@ -31,7 +31,9 @@ please follow step 4 and 5).
 *1c)* Install the latest [Paraview](https://www.paraview.org/download/) version. Feel free to choose the MPI versions, which let's you run Paraview in parallel.
 
 Windows only: Choose the .exe file
+
 macOS: Choose the .pkg file
+
 Linux: Choose the .tar.gz archieve and extract it
 
 ## 2. Initial setup
@@ -77,7 +79,7 @@ On a macOS system: ``/Users/jakob/openfoam-data``
 On most Linux systems: ``/home/jakob/openfoam-data``
 
 ## 4. Optional: Save an alias for running the Docker container
-*4a)* Instead of running the starting the docker container with the command, let's save an alias for that command:
+*4a)* Instead of running the starting the docker container with the command, let's save an alias for that command (macOS and Linux only). Copy/paste the following in the terminal:
 ```shell
 case "$OSTYPE" in
   linux*)   echo "alias of${ofver}='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:${ofver}'" >> $HOME/.bashrc ;;
@@ -86,7 +88,7 @@ case "$OSTYPE" in
 esac
 ```
 
-Next time you open a terminal, you can use your alias e.g. ```of2112```, ```of9``` to start a Docker container with OpenFOAM all set up.
+Next time you open a terminal, you can use your alias e.g. ```of2112```, ```of9``` to start a Docker container with OpenFOAM all set up. Note, for Windows you have to enter the command from [3. Run the Docker container](#3-run-the-docker-container).
 
 ## 4. Author list
 
