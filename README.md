@@ -26,9 +26,13 @@ export ofver=2112
 Windows only: You will be prompted to install WSL (Windows Subsystem for Linux) when installing Docker (in the instructions
 please follow step 4 and 5).
 
-*1b)* Install [Git](https://git-scm.com/downloads)
+*1b)* Install [Git](https://git-scm.com/downloads) for your operating system (Windows, macOS or Linux)
 
-*1c)* Install [Paraview](https://www.paraview.org/download/)
+*1c)* Install the latest [Paraview](https://www.paraview.org/download/) version. Feel free to choose the MPI versions, which let's you run Paraview in parallel.
+
+Windows only: Choose the .exe file
+macOS: Choose the .pkg file
+Linux: Choose the .tar.gz archieve and extract it
 
 ## 2. Initial setup
 *2a)* Open a Powershell (Windows) or a terminal (macOS or Linux) and run the following commands to make a folder for your OpenFOAM data. This folder will store your simulation results and developments:
