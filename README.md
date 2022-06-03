@@ -78,11 +78,11 @@ On a macOS system: ``/Users/jakob/openfoam-data``
 On most Linux systems: ``/home/jakob/openfoam-data``
 
 ## 4. Optional (macOS and Linux only): Save an alias for running the Docker container
-*4a)* Instead of using the command in docker container with the command in [3. Run the Docker container](#3-run-the-docker-container), we can save an alias for that command (macOS and Linux only). Copy/paste the following in the terminal:
+*4a)* Instead of using the command in docker container with the command in [3. Run the Docker container](#3-run-the-docker-container), we can save an alias for that command (macOS and Linux only). Copy/paste the following in the terminal (remember to replace ```<ofver>```):
 ```shell
 case "$OSTYPE" in
-  linux*)   echo "alias of${ofver}='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:${ofver}'" >> $HOME/.bashrc ;;
-  darwin*)  echo "alias of${ofver}='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:${ofver}'" >> $HOME/.zprofile ;;
+  linux*)   echo "alias of<ofver>='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:<ofver>'" >> $HOME/.bashrc ;;
+  darwin*)  echo "alias of<ofver>='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:<ofver>'" >> $HOME/.zprofile ;;
   *)        echo "This function is not yet added for $OSTYPE" ;;
 esac
 ```
