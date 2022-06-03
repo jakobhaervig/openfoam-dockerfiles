@@ -1,6 +1,6 @@
 # OpenFOAM Dockerfiles
 
-This repository contains OpenFOAM Dockerfiles. I've included both openfoam.com and openfoam.org releases based on Ubuntu Focal (20.04 LTS).
+This repository contains OpenFOAM Dockerfiles. Both openfoam.com and openfoam.org releases are included. Both are based on a Ubuntu Focal (20.04 LTS) image.
 
 ### What is Docker and why?
 
