@@ -15,10 +15,7 @@ Instead of shipping the complete container including the operating system, it’
 Feel free to fork these Docker files. If you make an improvement you are most welcome to make a pull request and you will be added to the author list. Comments are also welcome.
 
 # Setup
-This guide explains how to setup OpenFOAM with Docker. It contains both OpenFOAM fundation releases (e.g. OpenFOAM-9) and OpenFOAM ESI releases (e.g. OpenFOAM-2112). First, find locate your favourite release and export that variable. To do so open a Power Shell (Windows) or Terminal (macOS and Linux systems) and copy/paste the following commands carefully. For OpenFOAM-2112 type:
-```shell
-export ofver=2112
-```
+This guide explains how to setup OpenFOAM with Docker. It contains both OpenFOAM fundation releases (e.g. OpenFOAM-9) and OpenFOAM ESI releases (e.g. OpenFOAM-2112).
 
 ## 1. Prerequisites
 *1a)* Install [Docker](https://www.docker.com/products/docker-desktop)
@@ -36,14 +33,16 @@ macOS: Choose the .pkg file
 
 Linux: Choose the .tar.gz archieve and extract it
 
-## 2. Initial setup
-*2a)* Open a Powershell (Windows) or a terminal (macOS or Linux) and run the following commands to make a folder for your OpenFOAM data. This folder will store your simulation results and developments:
+## 2. Preparing for OpenFOAM
+*2a)* Decide on a OpenFOAM version to install. Check avialable versions by checking folder names in this repository. In the remainder for this guide replace ```<ofver>``` with the version you want to install, e.g. ```2112```. 
+
+*2b)* Open a Powershell (Windows) or a terminal (macOS or Linux) and run the following commands. First, make a folder to store your OpenFOAM data:
 
 ```shell
 mkdir $HOME/openfoam-data
 ```
 
-*2b)* Next, clone this repository by:
+*2c)* Next, clone this repository by:
 
 ```shell
 git clone https://github.com/jakobhaervig/openfoam-dockerfiles.git $HOME/openfoam-dockerfiles
@@ -51,20 +50,20 @@ git clone https://github.com/jakobhaervig/openfoam-dockerfiles.git $HOME/openfoa
 
 You should now have two folder "openfoam-data" and "openfoam-dockerfiles" in your home folder.
 
-*2c)* Now, make sure Docker is running before running before continuing.
+*2d)* Now, make sure Docker is running before continuing.
 
-*2d)* Build a OpenFOAM image:
+*2e)* Build a OpenFOAM image (remember to replace ```<ofver>```):
 
 ```shell
-docker image build -t openfoam:$ofver $HOME/openfoam-dockerfiles/$ofver/
+docker image build -t openfoam:<ofver> $HOME/openfoam-dockerfiles/<ofver>/
 ```
 
 ## 3. Run the Docker container
 
-*3a)* Finally, we can run a Docker container with ``/data`` mapped to ``$HOME/openfoam-data``:
+*3a)* Finally, start a Docker container with ``/data`` mapped to ``$HOME/openfoam-data`` (again remember to replace ```<ofver>```):
 
 ```shell
-docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:$ofver
+docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:<ofver>
 ```
 
 *Please note* that everything in the container is deleted when you exit the container. Therefore you should save your simulation results and solver development in ``/data``, which is the only directory that persists when the container is closed.
@@ -78,8 +77,8 @@ On a macOS system: ``/Users/jakob/openfoam-data``
 
 On most Linux systems: ``/home/jakob/openfoam-data``
 
-## 4. Optional: Save an alias for running the Docker container
-*4a)* Instead of running the starting the docker container with the command, let's save an alias for that command (macOS and Linux only). Copy/paste the following in the terminal:
+## 4. Optional (macOS and Linux only): Save an alias for running the Docker container
+*4a)* Instead of using the command in docker container with the command in [3. Run the Docker container](#3-run-the-docker-container), we can save an alias for that command (macOS and Linux only). Copy/paste the following in the terminal:
 ```shell
 case "$OSTYPE" in
   linux*)   echo "alias of${ofver}='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:${ofver}'" >> $HOME/.bashrc ;;
@@ -88,7 +87,7 @@ case "$OSTYPE" in
 esac
 ```
 
-Next time you open a terminal, you can use your alias e.g. ```of2112```, ```of9``` to start a Docker container with OpenFOAM all set up. Note, for Windows you have to enter the command from [3. Run the Docker container](#3-run-the-docker-container).
+Next time you open a terminal, you can use your alias e.g. ```of2112```, ```of9``` to start a Docker container with OpenFOAM all set up.
 
 ## 4. Author list
 
