@@ -15,7 +15,7 @@ Instead of shipping the complete container including the operating system, it’
 Feel free to fork these Docker files. If you make an improvement you are most welcome to make a pull request and you will be added to the author list. Comments are also welcome.
 
 # Setup
-This guide explains how to setup OpenFOAM with Docker. It contains both OpenFOAM fundation releases (e.g. OpenFOAM-9) and OpenFOAM ESI releases (e.g. OpenFOAM-2112).
+This guide explains how to setup OpenFOAM with Docker. It contains both OpenFOAM fundation releases (from openfoam.org) and OpenFOAM ESI releases (from openfoam.com).
 
 ## 1. Prerequisites
 *1a)* Install [Docker](https://www.docker.com/products/docker-desktop)
@@ -34,7 +34,7 @@ macOS: Choose the .pkg file
 Linux: Choose the .tar.gz archieve and extract it
 
 ## 2. Preparing for OpenFOAM
-*2a)* Decide on a OpenFOAM version to install. Check avialable versions by checking folder names in this repository. In the remainder for this guide replace ```<ofver>``` with the version you want to install, e.g. ```2112```. 
+*2a)* Decide on a OpenFOAM version to install. List available versions by folder names in this repository. Following the steps in guide will give you the latest ESI release of OpenFOAM. Replace ```esi``` with ```foundation``` to install the latest foundation release (e.g. 7, 8, 9)
 
 *2b)* Open a Powershell (Windows) or a terminal (macOS or Linux) and run the following commands. First, make a folder to store your OpenFOAM data:
 
@@ -52,18 +52,18 @@ You should now have two folder "openfoam-data" and "openfoam-dockerfiles" in you
 
 *2d)* Now, make sure Docker is running before continuing.
 
-*2e)* Build a OpenFOAM image (remember to replace ```<ofver>```):
+*2e)* Build the OpenFOAM image:
 
 ```shell
-docker image build -t openfoam:<ofver> $HOME/openfoam-dockerfiles/<ofver>/
+docker image build -t openfoam/esi:latest $HOME/openfoam-dockerfiles/esi/latest/
 ```
 
 ## 3. Run the Docker container
 
-*3a)* Finally, start a Docker container with ``/data`` mapped to ``$HOME/openfoam-data`` (again remember to replace ```<ofver>```):
+*3a)* Finally, start a Docker container with ``/data`` mapped to ``$HOME/openfoam-data``:
 
 ```shell
-docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:<ofver>
+docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam/esi:latest
 ```
 
 *Please note* that everything in the container is deleted when you exit the container. Therefore you should save your simulation results and solver development in ``/data``, which is the only directory that persists when the container is closed.
@@ -78,7 +78,7 @@ On a macOS system: ``/Users/jakob/openfoam-data``
 On most Linux systems: ``/home/jakob/openfoam-data``
 
 ## 4. Optional Save an alias for running the Docker container
-Instead of using the command in docker container with the command in [3. Run the Docker container](#3-run-the-docker-container), we can save an alias for that command. So when you open a Powershell (Windows) or a terminal (macOS or Linux) you can simply type e.g. ```of2112``` to start the Docker container.
+Instead of using the command in docker container with the command in [3. Run the Docker container](#3-run-the-docker-container), we can save an alias for that command. So when you open a Powershell (Windows) or a terminal (macOS or Linux) you can simply type e.g. ```of``` (short for OpenFOAM) to start the Docker container.
 
 ### **Windows operating system**
 *4a)* Open a Powershell with Administrator Rights and enter the follwing commands (copy/paste).
@@ -95,20 +95,20 @@ New-Item -Path $profile -ItemType file -force
 
 *4d)* Add the alias to the newly created file:
 ```shell
-echo "function fcn-<ofver> {
-  docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:<ofver>
+echo "function fcn-latest {
+  docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam/esi:latest
   }
-Set-Alias of<ofver> fcn-<ofver>
+Set-Alias of fcn-latest
 " > $profile
 ```
 
 ### **macOS and Linux systems**
 *4a)* 
-Copy/paste the following in the terminal (remember to replace ```<ofver>```):
+Copy/paste the following code snippet in the terminal:
 ```shell
 case "$OSTYPE" in
-  linux*)   echo "alias of<ofver>='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:<ofver>'" >> $HOME/.bashrc ;;
-  darwin*)  echo "alias of<ofver>='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:<ofver>'" >> $HOME/.zprofile ;;
+  linux*)   echo "alias of='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam/esi:latest'" >> $HOME/.bashrc ;;
+  darwin*)  echo "alias of='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam/esi:latest'" >> $HOME/.zprofile ;;
   *)        echo "This function is not yet added for $OSTYPE" ;;
 esac
 ```
