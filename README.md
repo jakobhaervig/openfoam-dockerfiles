@@ -77,8 +77,34 @@ On a macOS system: ``/Users/jakob/openfoam-data``
 
 On most Linux systems: ``/home/jakob/openfoam-data``
 
-## 4. Optional (macOS and Linux only): Save an alias for running the Docker container
-*4a)* Instead of using the command in docker container with the command in [3. Run the Docker container](#3-run-the-docker-container), we can save an alias for that command (macOS and Linux only). Copy/paste the following in the terminal (remember to replace ```<ofver>```):
+## 4. Optional Save an alias for running the Docker container
+Instead of using the command in docker container with the command in [3. Run the Docker container](#3-run-the-docker-container), we can save an alias for that command. So when you open a Powershell (Windows) or a terminal (macOS or Linux) you can simply type e.g. ```of2112``` to start the Docker container.
+
+### **Windows operating system**
+*4a)* Open a Powershell with Administrator Rights and enter the follwing commands (copy/paste).
+
+*4b)* Allow scripts to be run:
+```shell
+Set-ExecutionPolicy RemoteSigned
+```
+
+*4c)* Create a ```profile``` file to store our alias function:
+```shell
+New-Item -Path $profile -ItemType file -force
+```
+
+*4d)* Add the alias to the newly created file:
+```shell
+echo "function fcn-<ofver> {
+  docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:<ofver>
+  }
+Set-Alias of<ofver> fcn-<ofver>
+" > $profile
+```
+
+### **macOS and Linux systems**
+*4a)* 
+Copy/paste the following in the terminal (remember to replace ```<ofver>```):
 ```shell
 case "$OSTYPE" in
   linux*)   echo "alias of<ofver>='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:<ofver>'" >> $HOME/.bashrc ;;
@@ -86,8 +112,6 @@ case "$OSTYPE" in
   *)        echo "This function is not yet added for $OSTYPE" ;;
 esac
 ```
-
-Next time you open a terminal, you can use your alias e.g. ```of2112```, ```of9``` to start a Docker container with OpenFOAM all set up.
 
 ## 4. Author list
 
