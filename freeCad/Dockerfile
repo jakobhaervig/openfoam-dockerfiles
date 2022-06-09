@@ -1,7 +1,17 @@
-FROM openfoam:2112
+FROM openfoam/esi:latest
+
+# install python
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 \
+    python3-pip \
+    && \
+    apt-get clean && \
+
+# install python packages
+RUN pip3 install numpy
+RUN pip3 install matplotlib
 
 # install essentials
-RUN sudo apt update 
 RUN sudo DEBIAN_FRONTEND=noninteractive apt install -y freecad mc htop vim
 RUN sudo rm -rf /var/lib/apt/lists/*
 		
