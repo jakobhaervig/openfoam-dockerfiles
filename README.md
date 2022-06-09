@@ -55,7 +55,7 @@ You should now have two folder "openfoam-data" and "openfoam-dockerfiles" in you
 *2e)* Build the OpenFOAM image:
 
 ```shell
-docker image build -t openfoam:latest $HOME/openfoam-dockerfiles/esi/latest/
+docker image build -t openfoam $HOME/openfoam-dockerfiles/esi/latest/
 ```
 
 ## 3. Run the Docker container
@@ -113,6 +113,21 @@ case "$OSTYPE" in
 esac
 ```
 
-## 4. Author list
+## 5. Installing new extensions
+We will be using different extensions in the two courses. 
+
+*5a)* To extend our Docker image to include a Python installation with different useful packages:
+
+```shell
+docker image build -t openfoam $HOME/openfoam-dockerfiles/extensions/python
+```
+
+*5b)* To extend our Docker image to include a FreeCad installation:
+
+```shell
+docker image build -t openfoam $HOME/openfoam-dockerfiles/extensions/freecad
+```
+
+## 6. Author list
 
 Jakob Hærvig
