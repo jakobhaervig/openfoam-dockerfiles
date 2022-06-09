@@ -55,7 +55,7 @@ You should now have two folder "openfoam-data" and "openfoam-dockerfiles" in you
 *2e)* Build the OpenFOAM image:
 
 ```shell
-docker image build -t openfoam/esi:latest $HOME/openfoam-dockerfiles/esi/latest/
+docker image build -t openfoam:latest $HOME/openfoam-dockerfiles/esi/latest/
 ```
 
 ## 3. Run the Docker container
@@ -63,7 +63,7 @@ docker image build -t openfoam/esi:latest $HOME/openfoam-dockerfiles/esi/latest/
 *3a)* Finally, start a Docker container with ``/data`` mapped to ``$HOME/openfoam-data``:
 
 ```shell
-docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam/esi:latest
+docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:latest
 ```
 
 *Please note* that everything in the container is deleted when you exit the container. Therefore you should save your simulation results and solver development in ``/data``, which is the only directory that persists when the container is closed.
@@ -96,7 +96,7 @@ New-Item -Path $profile -ItemType file -force
 *4d)* Add the alias to the newly created file:
 ```shell
 echo "function fcn-latest {
-  docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam/esi:latest
+  docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:latest
   }
 Set-Alias of fcn-latest
 " > $profile
@@ -107,8 +107,8 @@ Set-Alias of fcn-latest
 Copy/paste the following code snippet in the terminal:
 ```shell
 case "$OSTYPE" in
-  linux*)   echo "alias of='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam/esi:latest'" >> $HOME/.bashrc ;;
-  darwin*)  echo "alias of='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam/esi:latest'" >> $HOME/.zprofile ;;
+  linux*)   echo "alias of='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:latest'" >> $HOME/.bashrc ;;
+  darwin*)  echo "alias of='docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:latest'" >> $HOME/.zprofile ;;
   *)        echo "This function is not yet added for $OSTYPE" ;;
 esac
 ```
