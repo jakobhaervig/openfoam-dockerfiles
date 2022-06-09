@@ -58,12 +58,23 @@ You should now have two folder "openfoam-data" and "openfoam-dockerfiles" in you
 docker image build -t openfoam/esi:latest $HOME/openfoam-dockerfiles/esi/latest/
 ```
 
+*2f)* Build the FreeCad image:
+```shell
+docker image build -t openfoam/freecad:latest $HOME/openfoam-dockerfiles/freeCad
+```
+
 ## 3. Run the Docker container
 
 *3a)* Finally, start a Docker container with ``/data`` mapped to ``$HOME/openfoam-data``:
 
 ```shell
 docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam/esi:latest
+```
+
+*3b)* for the FreeCAD image.
+
+```shell
+docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam/freecad:latest
 ```
 
 *Please note* that everything in the container is deleted when you exit the container. Therefore you should save your simulation results and solver development in ``/data``, which is the only directory that persists when the container is closed.
