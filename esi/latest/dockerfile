@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
 		nano \
 		git \
 		ffmpeg \
+		htop \
 		build-essential \
 		software-properties-common ;\
 		rm -rf /var/lib/apt/lists/*
@@ -28,7 +29,7 @@ RUN useradd --user-group --create-home --shell /bin/bash foam ;\
     
 # source openfoam and fix docker mpi
 RUN echo "source /usr/lib/openfoam/openfoam/etc/bashrc" >> ~foam/.bashrc ;\
-    echo "export OMPI_MCA_btl_vader_single_copy_mechanism=none" >> ~foam/.bashrc
+   echo "export OMPI_MCA_btl_vader_single_copy_mechanism=none" >> ~foam/.bashrc
 
 # change environmental variables to make sure $WM_PROJECT_USER_DIR is outside of the container
 RUN sed -i '/export WM_PROJECT_USER_DIR=/cexport WM_PROJECT_USER_DIR="/data/foam-$WM_PROJECT_VERSION"' /usr/lib/openfoam/openfoam/etc/bashrc
