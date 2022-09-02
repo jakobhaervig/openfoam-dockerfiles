@@ -27,7 +27,7 @@ please follow step 4 and 5).
 
 *1c)* Install the latest [Paraview](https://www.paraview.org/download/) version. Feel free to choose the MPI versions, which let's you run Paraview in parallel.
 
-Windows only: Choose the .exe file
+Windows only: Choose the .exe or .msi file
 
 macOS: Choose the .pkg file
 
