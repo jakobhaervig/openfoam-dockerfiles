@@ -95,10 +95,10 @@ New-Item -Path $profile -ItemType file -force
 
 *4d)* Add the alias to the newly created file:
 ```shell
-echo "function fcn-latest {
+echo "function openfoam-docker-latest {
   docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:latest
   }
-Set-Alias of fcn-latest
+Set-Alias of openfoam-docker-latest
 " > $profile
 ```
 
