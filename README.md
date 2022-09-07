@@ -55,7 +55,7 @@ You should now have two folder "openfoam-data" and "openfoam-dockerfiles" in you
 *2e)* Build the OpenFOAM image:
 
 ```shell
-docker image build -t openfoam $HOME/openfoam-dockerfiles/esi/latest/
+docker image build --no-cache -t openfoam $HOME/openfoam-dockerfiles/esi/latest/
 ```
 
 ## 3. Run the Docker container
