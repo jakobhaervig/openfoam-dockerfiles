@@ -78,12 +78,12 @@ On a macOS system: ``/Users/jakob/openfoam-data``
 On most Linux systems: ``/home/jakob/openfoam-data``
 
 ## 4. Optional: Save an alias for running the Docker container
-Instead of using the command in docker container with the command in [3. Run the Docker container](#3-run-the-docker-container), we can save an alias for that command. So when you open a Powershell (Windows) or a terminal (macOS or Linux) you can simply type e.g. ```of``` (short for OpenFOAM) to start the Docker container.
+Instead of starting a Docker container with the command in [3. Run the Docker container](#3-run-the-docker-container), we can save an alias for that command. With an alias saved we can simply type ```of``` (short for OpenFOAM) in a Powershell (Windows) or a terminal (macOS or Linux) to start the Docker container.
 
 ### **Windows operating system**
-*4a)* Open a Powershell with Administrator Rights and enter the follwing commands (copy/paste).
+*4a)* Open a Powershell with *Administrator Rights* and enter the follwing commands (copy/paste the code from each step into the Power Shell and hit enter).
 
-*4b)* Allow scripts to be run:
+*4b)* Allow scripts to be run (Hit *A* for Yes to All):
 ```shell
 Set-ExecutionPolicy RemoteSigned
 ```
@@ -102,6 +102,8 @@ Set-Alias of openfoam-docker-latest
 " > $profile
 ```
 
+We can now start the container using the newly created ```of``` alias by typing ```of``` in the Power Shell.
+
 ### **macOS and Linux systems**
 *4a)* 
 Copy/paste the following code snippet in the terminal:
@@ -112,6 +114,8 @@ case "$OSTYPE" in
   *)        echo "This function is not yet added for $OSTYPE" ;;
 esac
 ```
+
+After opening a new terminal, we can now start the container using the newly created ```of``` alias by typing ```of``` in the Power Shell.
 
 ## 5. Optional: Installing new extensions
 If you need to add extensions to your image, you may extend it by following the steps below. 
