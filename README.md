@@ -77,7 +77,7 @@ On a macOS system: ``/Users/jakob/openfoam-data``
 
 On most Linux systems: ``/home/jakob/openfoam-data``
 
-## 4. Optional Save an alias for running the Docker container
+## 4. Optional: Save an alias for running the Docker container
 Instead of using the command in docker container with the command in [3. Run the Docker container](#3-run-the-docker-container), we can save an alias for that command. So when you open a Powershell (Windows) or a terminal (macOS or Linux) you can simply type e.g. ```of``` (short for OpenFOAM) to start the Docker container.
 
 ### **Windows operating system**
@@ -95,10 +95,10 @@ New-Item -Path $profile -ItemType file -force
 
 *4d)* Add the alias to the newly created file:
 ```shell
-echo "function fcn-latest {
+echo "function openfoam-docker-latest {
   docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:latest
   }
-Set-Alias of fcn-latest
+Set-Alias of openfoam-docker-latest
 " > $profile
 ```
 
@@ -113,8 +113,8 @@ case "$OSTYPE" in
 esac
 ```
 
-## 5. Installing new extensions
-We will be using different extensions in the two courses. 
+## 5. Optional: Installing new extensions
+If you need to add extensions to your image, you may extend it by following the steps below. 
 
 *5a)* To extend our Docker image to include a Python installation with different useful packages:
 
