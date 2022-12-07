@@ -95,11 +95,7 @@ New-Item -Path $profile -ItemType file -force
 
 *4d)* Add the alias to the newly created file:
 ```shell
-echo "function openfoam-docker-latest {
-  docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:latest
-  }
-Set-Alias of openfoam-docker-latest
-" > $profile
+echo "function openfoam-docker-latest {docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:latest} Set-Alias of openfoam-docker-latest" > $profile
 ```
 
 We can now start the container using the newly created ```of``` alias by typing ```of``` in the Power Shell.
