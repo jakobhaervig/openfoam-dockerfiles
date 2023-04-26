@@ -48,7 +48,7 @@ mkdir $HOME/openfoam-data
 git clone https://github.com/jakobhaervig/openfoam-dockerfiles.git $HOME/openfoam-dockerfiles
 ```
 
-You should now have two folder "openfoam-data" and "openfoam-dockerfiles" in your home folder.
+You should now have two folder ```openfoam-data``` and ```openfoam-dockerfiles``` in your home folder.
 
 *2d)* Now, make sure Docker is running before continuing.
 
@@ -66,10 +66,13 @@ docker image build --no-cache -t openfoam $HOME/openfoam-dockerfiles/esi/latest/
 docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:latest
 ```
 
-*Please note* that everything in the container is deleted when you exit the container. Therefore you should save your simulation results and solver development in ``/data``, which is the only directory that persists when the container is closed.
+Note: All files stored in the container are deleted when you exit the container. Therefore you should save your simulation results and solver development in ``/data``, which is the only directory that persists when the container is closed.
 
-Running the above command should leave you inside the Docker container with the username "foam". 
-Also, you may access the container through ``$HOME/openfoam-data`` e.g.:
+Running the above command should leave you inside the Docker container with the username ```foam```. 
+
+## 4. Accessing files in the Docker container
+
+You may access the container through ``$HOME/openfoam-data`` e.g.:
 
 On a Windows system: ``C:\Users\jakob\openfoam-data``
 
@@ -77,23 +80,23 @@ On a macOS system: ``/Users/jakob/openfoam-data``
 
 On most Linux systems: ``/home/jakob/openfoam-data``
 
-## 4. Optional: Save an alias for running the Docker container
+## 5. Optional: Save an alias for running the Docker container
 Instead of starting a Docker container with the command in [3. Run the Docker container](#3-run-the-docker-container), we can save an alias for that command. With an alias saved we can simply type ```of``` (short for OpenFOAM) in a Powershell (Windows) or a terminal (macOS or Linux) to start the Docker container.
 
 ### **Windows operating system**
-*4a)* Open a Powershell with *Administrator Rights* and enter the follwing commands (copy/paste the code from each step into the Power Shell (use GitHub's copy buttom) and hit enter).
+*5a)* Open a Powershell with *Administrator Rights* and enter the follwing commands (copy/paste the code from each step into the Power Shell (use GitHub's copy buttom) and hit enter).
 
-*4b)* Allow scripts to be run (Hit *A* for Yes to All):
+*5b)* Allow scripts to be run (Hit *A* for Yes to All):
 ```shell
 Set-ExecutionPolicy RemoteSigned
 ```
 
-*4c)* Create a ```profile``` file to store our alias function:
+*5c)* Create a ```profile``` file to store our alias function:
 ```shell
 New-Item -Path $profile -ItemType file -force
 ```
 
-*4d)* Add the alias to the newly created file:
+*5d)* Add the alias to the newly created file:
 ```shell
 echo "function openfoam-docker-latest {docker container run -ti --rm -v $HOME/openfoam-data:/data -w /data openfoam:latest} Set-Alias of openfoam-docker-latest" > $profile
 ```
@@ -101,7 +104,7 @@ echo "function openfoam-docker-latest {docker container run -ti --rm -v $HOME/op
 We can now start the container using the newly created ```of``` alias by typing ```of``` in the Power Shell.
 
 ### **macOS and Linux systems**
-*4a)* 
+*5a)* 
 Copy/paste the following code snippet in the terminal:
 ```shell
 case "$OSTYPE" in
@@ -113,21 +116,21 @@ esac
 
 After opening a new terminal, we can now start the container using the newly created ```of``` alias by typing ```of``` in the Power Shell.
 
-## 5. Optional: Installing new extensions
+## 6. Optional: Installing new extensions
 If you need to add extensions to your image, you may extend it by following the steps below. 
 
-*5a)* To extend our Docker image to include a Python installation with different useful packages:
+*6a)* To extend our Docker image to include a Python installation with different useful packages:
 
 ```shell
 docker image build -t openfoam $HOME/openfoam-dockerfiles/extensions/python
 ```
 
-*5b)* To extend our Docker image to include a FreeCad installation:
+*6b)* To extend our Docker image to include a FreeCad installation:
 
 ```shell
 docker image build -t openfoam $HOME/openfoam-dockerfiles/extensions/freecad
 ```
 
-## 6. Author list
+## 7. Author list
 
 Jakob Hærvig
