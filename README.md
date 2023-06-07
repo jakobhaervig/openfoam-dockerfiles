@@ -116,7 +116,7 @@ esac
 
 After opening a new terminal, we can now start the container using the newly created ```of``` alias by typing ```of``` in the Power Shell.
 
-## 6. Optional: Installing new extensions
+## 6. Install extensions
 If you need to add extensions to your image, you may extend it by following the steps below. 
 
 *6a)* To extend our Docker image to include a Python installation with different useful packages:
