@@ -50,7 +50,7 @@ git clone https://github.com/jakobhaervig/openfoam-dockerfiles.git $HOME/openfoa
 
 You should now have two folder ```openfoam-data``` and ```openfoam-dockerfiles``` in your home folder.
 
-*2d)* Now, make sure Docker is running before continuing.
+*2d)* Now, start the program called Docker Desktop to start the Docker engine.
 
 *2e)* Build the OpenFOAM image:
 
