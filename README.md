@@ -25,7 +25,7 @@ please follow step 4 and 5).
 
 *1b)* Install [Git](https://git-scm.com/downloads) for your operating system (Windows, macOS or Linux)
 
-*1c)* Install the latest [Paraview](https://www.paraview.org/download/) version. Feel free to choose the MPI versions, which let's you run Paraview in parallel.
+*1c)* Install the latest [Paraview](https://www.paraview.org/download/) version. If you have trouble getting the MPI version (parallel) to work, please choose the non-MPI version.
 
 Windows only: Choose the .exe or .msi file
 
