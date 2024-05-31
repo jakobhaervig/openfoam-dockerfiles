@@ -130,7 +130,3 @@ docker image build -t openfoam $HOME/openfoam-dockerfiles/extensions/python
 ```shell
 docker image build -t openfoam $HOME/openfoam-dockerfiles/extensions/freecad
 ```
-
-## 7. Author list
-
-Jakob Hærvig
